@@ -1,0 +1,50 @@
+public class Application {
+    public static void main(String[] args) {
+        TreeNode<Character> root = new TreeNode<Character>('A', null);
+        BinaryTree<Character> tree = new BinaryTree<Character>(root);
+        tree.root.addLeftChild('B');
+        tree.root.addRightChild('C');
+        tree.root.leftChild.addLeftChild('D');
+        tree.root.leftChild.addRightChild('E');
+        tree.root.rightChild.addLeftChild('F');
+        tree.root.rightChild.addRightChild('G');
+        TreeTraversal<Character> treeTraversal = new TreeTraversal<>(tree);
+        System.out.println("Level Order Traversal");
+        treeTraversal.levelOrder();
+        System.out.println("In-Order Traversal");
+        treeTraversal.inOrder();
+        System.out.println("Post-Order Traversal");
+        treeTraversal.postOrder();
+        System.out.println("Pre-Order Traversal");
+        treeTraversal.preOrder();
+        System.out.println("Binary Search Tree");
+        TreeNode<Character> bstroot = new TreeNode<>('E', null);
+        BinaryTree<Character> bstree = new BinaryTree<Character>(bstroot);
+        bstree.root.addLeftChild('B');
+        bstree.root.addRightChild('M');
+        bstree.root.leftChild.addLeftChild('A');
+        bstree.root.leftChild.addRightChild('C');
+        bstree.root.rightChild.addLeftChild('L');
+        bstree.root.rightChild.addRightChild('Q');
+        System.out.println("Finding element in Binary Search Tree");
+        System.out.println(bstree.contains('N'));
+        System.out.println("Inserting Element && checking by conducting level order traversal");
+        System.out.println(bstree.insert('Z'));
+        TreeTraversal<Character> bsTreeTraversal = new TreeTraversal<>(bstree);
+        bsTreeTraversal.levelOrder();
+        System.out.println("========= Testing for Delete Method =========");
+        TreeNode<Integer> intTree = new TreeNode<>(20, null);
+        BinaryTree<Integer> intbstree = new BinaryTree<Integer>(intTree);
+        intbstree.root.addLeftChild(10);
+        intbstree.root.addRightChild(30);
+        intbstree.root.leftChild.addLeftChild(5);
+        intbstree.root.leftChild.addRightChild(15);
+        intbstree.root.leftChild.rightChild.addLeftChild(12);
+        intbstree.root.rightChild.addLeftChild(25);
+        TreeTraversal<Integer> intTreeTraversal = new TreeTraversal<>(intbstree);
+        intTreeTraversal.levelOrder();
+        intbstree.delete(10);
+        System.out.println("=======");
+        intTreeTraversal.levelOrder();
+    }
+}
